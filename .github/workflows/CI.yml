@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule
+    - cron: '0 0 * * 0' # at midnight of each sunday
+  workflow_dispatch:
+    # configuring a workflow to run manually
+
+name: CI
+
+jobs:
+  develop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: taiki-e/install-action@just
+    - uses: astral-sh/setup-uv@v3
+    - run: |
+        just dev
