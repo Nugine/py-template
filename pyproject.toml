@@ -1,0 +1,22 @@
+[project]
+name = "py-template"
+version = "0.0.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.3",
+]
+
+[tool.ruff]
+cache-dir = ".cache/ruff"
+
+[tool.pytest.ini_options]
+cache_dir = ".cache/pytest"
